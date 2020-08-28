@@ -1,21 +1,14 @@
+"""Import turtle graphics under alias jerry."""
 import turtle as jerry
-
-def draw_flower(x, y, num_petals, petal_size, color, petal_length):
-  """This function draws a flower using turtle graphics"""
-
-  jerry.goto(x,y)
-  jerry.pencolor(color)
-  jerry.pensize(petal_size)
-
-  #draw petals
-  for _ in range(num_petals):
-    jerry.forward(petal_length)
-    jerry.backward(petal_length)
-    jerry.right(360/num_petals)
-
-  #draw center
-  jerry.pencolor("orange")
-  jerry.dot(50)
+from plant import Plant
+from flower import Flower
+from tree import Tree
 
 
-draw_flower(0,0,6,40,"pink", 100)
+flower = Flower(0, 0, 6, "pink", 40, 100)
+flower.draw("orange")
+
+tree = Tree(50, -50, 4, "green", 30, 50)
+tree.draw("brown", 30, 200)
+
+jerry.done()
