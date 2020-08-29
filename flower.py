@@ -6,9 +6,9 @@ from plant import Plant
 class Flower(Plant):
     """Flower class creates flower."""
 
-    def __init__(self, x, y, num_protrusions, color, protrusion_size, protrusion_length):
+    def __init__(self, num_protrusions, color, protrusion_size, protrusion_length):
         """Initialize flower properties."""
-        super().__init__(x, y, num_protrusions, color, protrusion_size, protrusion_length)
+        super().__init__(num_protrusions, color, protrusion_size, protrusion_length)
         self.turn_degrees = 0
 
     def draw(self, center_color):
@@ -16,7 +16,9 @@ class Flower(Plant):
         #call get_turn_degrees, use return value
         self.get_turn_degrees()
         #draw petals
+        jerry.penup()
         jerry.goto(self.x, self.y)
+        jerry.pendown()
         jerry.pencolor(self.color)
         jerry.pensize(self.protrusion_size)
         for _ in range(self.num_protrusions):
@@ -26,5 +28,5 @@ class Flower(Plant):
 
         #draw center
         jerry.pencolor(center_color)
-        jerry.dot(50)
+        jerry.dot(self.protrusion_length/2)
         jerry.penup()

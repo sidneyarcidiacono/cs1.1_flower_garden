@@ -6,9 +6,9 @@ from plant import Plant
 class Tree(Plant):
     """Define Tree class."""
 
-    def __init__(self, x, y, num_protrusions, color, protrusion_size, protrusion_length):
+    def __init__(self, num_protrusions, color, protrusion_size, protrusion_length):
         """Init inherited properties."""
-        super().__init__(x, y, num_protrusions, color, protrusion_size, protrusion_length)
+        super().__init__(num_protrusions, color, protrusion_size, protrusion_length)
         self.iteration = 1
 
     def get_turn_degrees(self):
@@ -39,3 +39,5 @@ class Tree(Plant):
                 jerry.left(self.turn_degrees)
                 jerry.forward(self.protrusion_length)
                 self.iteration += 1
+        jerry.right(90)
+        jerry.penup()
